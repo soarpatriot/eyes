@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+      = render "shared/meta"
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+      = render "shared/ie9"
+      = javascript_include_tag 'application', 'data-turbolinks-track' => true
+      = csrf_meta_tags
+    body
+      = render "shared/session_navbar"
+      = render "shared/flash_messages"
+
+      .main-content
+       .container.home-container
+          .row
+            .col-lg-12
+              = yield
+      = render "shared/footer"
+

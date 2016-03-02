@@ -1,0 +1,4 @@
+
+ul.nav.nav-sidebar 
+ li class="#{params[:controller].end_with?('criterions')? 'active':''}"
+   = link_to "时长标准", criterions_path

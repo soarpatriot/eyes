@@ -1,0 +1,26 @@
+.content-wraper
+  .row
+    .col-sm-12
+      p.pull-right 
+        = link_to "添加", new_criterion_path, class: "btn btn-primary"
+  table.table 
+    thead
+      tr 
+        th 编号
+        th 类型
+        th 时长（分）
+    tbody 
+      - @criterions.each do |criterion|
+        tr
+          td #{criterion.id} 
+          td #{criterion.ctype}
+          td #{criterion.minutes}
+          td 
+           .btn-group
+             = link_to  "编辑", edit_criterion_path(criterion), class:"btn btn-warning"
+             = link_to "删除", criterion_path(criterion), method: "delete", class: "btn btn-danger", data:{ confirm: '确定删除吗 ?'}
+
+  .row
+    .col-lg-12.toolbar
+      .pull-right = paginate @criterions, theme: 'twitter-bootstrap-3'
+

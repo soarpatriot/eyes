@@ -1,0 +1,13 @@
+
+= simple_form_for(@criterion, html: {class: "form-horizontal"})  do |f|
+
+  = f.error_notification
+  .row
+    .col-sm-6
+      = f.input :ctype
+  .row
+    .col-sm-6
+      = f.input :minutes
+
+  .form-group
+      = f.button :submit, "确定"

@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        = render "shared/meta"
+        = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+        = javascript_include_tag 'application', 'data-turbolinks-track' => true
+        = csrf_meta_tags
+    body(id="#{params[:controller]}-#{params[:action]}")
+        // = render "shared/navbar"
+        = render "shared/session_navbar"
+        = render "shared/api_base" 
+        .main-content
+            = render "shared/ie_tip"
+            = render "shared/flash_messages"
+            .sidebar
+              = render "shared/sidebar"
+            .content-container
+              = yield
+
+
