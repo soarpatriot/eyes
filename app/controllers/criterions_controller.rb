@@ -54,7 +54,7 @@ class CriterionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def criterion_params
-      params.require(:criterion).permit(:id,:name, :ctype, :minutes, :criterionable_id, :criterionable_type)
+      params.require(:criterion).permit(:id,:name, :step,:ctype, :minutes, :criterionable_id, :criterionable_type)
     end
 
 end

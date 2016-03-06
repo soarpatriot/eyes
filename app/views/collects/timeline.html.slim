@@ -1,0 +1,18 @@
+
+ul.timeline
+  - @timelines.each do |timeline|
+    li
+      .tldate 
+        = time_ago_in_words(timeline.opt_at)
+    li
+      .tl-cric
+      .timeline-panel
+        .tl-heading
+          h4 #{timeline.status_alias}
+          p 
+            small.text-muted
+              i class="glyphicon glyphicon-time"
+              = time_ago_in_words(timeline.opt_at)
+        .tl-body
+          p
+            | #{timeline.remark}

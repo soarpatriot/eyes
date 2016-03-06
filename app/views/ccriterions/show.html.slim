@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+  strong Start at:
+  = @ccriterion.start_at
+p
+  strong End at:
+  = @ccriterion.end_at
+p
+  strong Assign mins:
+  = @ccriterion.assign_mins
+p
+  strong Respoonse mins:
+  = @ccriterion.respoonse_mins
+p
+  strong Door mins:
+  = @ccriterion.door_mins
+p
+  strong In mins:
+  = @ccriterion.in_mins
+p
+  strong Out mins:
+  = @ccriterion.out_mins
+p
+  strong Accquire mins:
+  = @ccriterion.accquire_mins
+p
+  strong Criteriable:
+  = @ccriterion.criteriable_id
+p
+  strong Criteriable type:
+  = @ccriterion.criteriable_type
+
+= link_to 'Edit', edit_ccriterion_path(@ccriterion)
+'|
+= link_to 'Back', ccriterions_path

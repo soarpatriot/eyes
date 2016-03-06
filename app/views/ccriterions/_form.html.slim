@@ -1,0 +1,17 @@
+= simple_form_for(@ccriterion) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :start_at
+    = f.input :end_at
+    = f.input :assign_mins
+    = f.input :respoonse_mins
+    = f.input :door_mins
+    = f.input :in_mins
+    = f.input :out_mins
+    = f.input :accquire_mins
+    = f.input :criteriable_id
+    = f.input :criteriable_type
+
+  .form-actions
+    = f.button :submit

@@ -1,32 +1,36 @@
 
 $(function(){
-  if( $("#station-form").length > 0){
-   
-    $("#province_id").change(function(){
-      $("#station-form").submit();
-    });
-    var provinceId =  $("#province_id").val();
-    console.log("province:"+provinceId);
-    if(provinceId){
+    var api = { baseUrl: "http://localhost:9000/v1",apiKey: "fff" }; 
+    var criterionType = $("#collect_criterion_criteriable_type").val();
+    var criterionId = $("#collect_criterion_criteriable_id").val();
+    var provinceUrl = api.baseUrl + "/provinces.json?api_key=" + api.apiKey
+    var cityUrl = api.baseUrl + "/cities.json?api_key=" + api.apiKey
 
-      var cityUrl = api.baseUrl + "/provinces/" + provinceId + "/cities.json?api_key=" + api.appKey
-      var cityOption = "";
-      var citySelected = $("#city_selected").val();
-      $.get(cityUrl,{id:provinceId},function(cities){
-         console.log("cities:"+ cities);
-         cityOption += '<option value=""></option>'; 
-         $.each(cities,function(index,city){
-           cityOption += '<option value="'+city.id+'">'+city.description+'</option>'; 
+    var changeTypeCollection = function(url, data,selected){
+
+      var provinceOption = "";
+      $.get(url,data, function(provinces){
+         $.each(provinces,function(index,province){
+           provinceOption += '<option value="'+province.id+'">'+province.name+'</option>'; 
          });
-         $("#city_id").empty();
-         $("#city_id").append(cityOption);
-         if(citySelected){
-           $("#city_id").val(citySelected);
-         }
+         $("#collect_criterion_criteriable_id").empty();
+         $("#collect_criterion_criteriable_id").append(provinceOption);
       });
-      $("#city_id").change(function(){
-        $("#station-form").submit();
-      });
+      if(selected){
+        $("#collect_criterion_criteriable_id").val(selected);
+      } 
+    } 
+    var initTypes = function(criterionType){
+      if(criterionType === 'Province'){
+        changeTypeCollection(provinceUrl, null, criterionId);
+      }
+      if(criterionType === 'City'){
+        changeTypeCollection(cityUrl, null, criterionId);
+      }
+ 
     }
-  }
+    initTypes(criterionType);
+    $("#collect_criterion_criteriable_type").change(function(){
+      initTypes($(this).val()); 
+    });
 });

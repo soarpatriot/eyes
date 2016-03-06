@@ -66,7 +66,7 @@ zh-CN:
       almost_x_years:
         one: 接近一年
         other: 接近 %{count} 年
-      half_a_minute: 半分钟
+      half_a_minute: 半分钟前
       less_than_x_minutes:
         one: 不到一分钟
         other: 不到 %{count} 分钟
@@ -78,16 +78,16 @@ zh-CN:
         other: ! '%{count} 年多'
       x_days:
         one: 一天
-        other: ! '%{count} 天'
+        other: ! '%{count} 天前'
       x_minutes:
         one: 一分钟
-        other: ! '%{count} 分钟'
+        other: ! '%{count} 分钟前'
       x_months:
         one: 一个月
-        other: ! '%{count} 个月'
+        other: ! '%{count} 个月前'
       x_seconds:
         one: 一秒
-        other: ! '%{count} 秒'
+        other: ! '%{count} 秒前'
     prompts:
       day: 日
       hour: 时
@@ -197,7 +197,7 @@ zh-CN:
   time:
     am: 上午
     formats:
-      default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
+      default: ! '%Y年%b%d日 %A %H:%M'
       long: ! '%Y年%b%d日 %H:%M'
       short: ! '%b%d日 %H:%M'
     pm: 下午

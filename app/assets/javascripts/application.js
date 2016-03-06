@@ -32,22 +32,6 @@
 //= require underscore
 //= require jquery-json
 //= require ramda
-
-//= require map-global
-//= require baidu-map
-//= require geo-utils12
-//= require drawing-manager1.4
-//= require search-info-window14
-
-//= require notify
-//= require map-utils
-//= require Mapv
-
-//= require draw
-//= require station-areas
-
-//= require district-select
+//= require faye-browser-min
+//= require chat
 //= require station-select
-
-//= require area-index
-//= require validate

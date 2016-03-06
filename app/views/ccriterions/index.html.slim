@@ -1,0 +1,39 @@
+h1 Listing ccriterions
+
+table
+  thead
+    tr
+      th Start at
+      th End at
+      th Assign mins
+      th Respoonse mins
+      th Door mins
+      th In mins
+      th Out mins
+      th Accquire mins
+      th Criteriable
+      th Criteriable type
+      th
+      th
+      th
+
+  tbody
+    - @ccriterions.each do |ccriterion|
+      tr
+        td = ccriterion.start_at
+        td = ccriterion.end_at
+        td = ccriterion.assign_mins
+        td = ccriterion.respoonse_mins
+        td = ccriterion.door_mins
+        td = ccriterion.in_mins
+        td = ccriterion.out_mins
+        td = ccriterion.accquire_mins
+        td = ccriterion.criteriable_id
+        td = ccriterion.criteriable_type
+        td = link_to 'Show', ccriterion
+        td = link_to 'Edit', edit_ccriterion_path(ccriterion)
+        td = link_to 'Destroy', ccriterion, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Ccriterion', new_ccriterion_path

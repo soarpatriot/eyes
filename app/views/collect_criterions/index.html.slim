@@ -1,0 +1,35 @@
+.table-responsive
+ table.table.table-striped
+  thead
+    tr
+      th 标准区域
+      th 揽件开始 
+      th 揽件结束
+      th 分配时间
+      th 响应时间
+      th 上门时间
+      th 入站时间
+      th 出站时间
+      th 要求时间
+      th
+      th
+
+  tbody
+    - @collect_criterions.each do |collect_criterion|
+      tr
+        td = collect_criterion.try(:criteriable).name
+       
+        td = collect_criterion.start_at.strftime("%H:%M")
+        td = collect_criterion.end_at.strftime("%H:%M")
+        td = collect_criterion.assign_mins
+        td = collect_criterion.response_mins
+        td = collect_criterion.door_mins
+        td = collect_criterion.in_mins
+        td = collect_criterion.out_mins
+        td = collect_criterion.accquire_mins
+        td = link_to '编辑', edit_collect_criterion_path(collect_criterion)
+        td = link_to '删除', collect_criterion, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to '添加标准', new_collect_criterion_path

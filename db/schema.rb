@@ -11,13 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302153931) do
+ActiveRecord::Schema.define(version: 20160306054643) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.integer  "province_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "collect_criterions", force: :cascade do |t|
+    t.time     "start_at"
+    t.time     "end_at"
+    t.integer  "assign_mins",      limit: 4
+    t.integer  "response_mins",    limit: 4
+    t.integer  "door_mins",        limit: 4
+    t.integer  "in_mins",          limit: 4
+    t.integer  "out_mins",         limit: 4
+    t.integer  "accquire_mins",    limit: 4
+    t.integer  "criteriable_id",   limit: 4
+    t.string   "criteriable_type", limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "collects", force: :cascade do |t|
@@ -28,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160302153931) do
     t.datetime "end_at"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "user_id",       limit: 4
   end
 
   create_table "criterions", force: :cascade do |t|
@@ -37,6 +53,8 @@ ActiveRecord::Schema.define(version: 20160302153931) do
     t.string   "criterionable_type", limit: 255
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "name",               limit: 255
+    t.integer  "step",               limit: 4
   end
 
   create_table "departments", force: :cascade do |t|
@@ -57,6 +75,15 @@ ActiveRecord::Schema.define(version: 20160302153931) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "keys", force: :cascade do |t|
+    t.string   "origin",     limit: 255
+    t.string   "api_key",    limit: 255
+    t.integer  "ktype",      limit: 4
+    t.string   "api_secret", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
@@ -65,12 +92,12 @@ ActiveRecord::Schema.define(version: 20160302153931) do
 
   create_table "timelines", force: :cascade do |t|
     t.datetime "opt_at"
-    t.integer  "lineable_id",   limit: 4
-    t.string   "lineable_type", limit: 255
-    t.text     "remark",        limit: 65535
-    t.integer  "status",        limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "timelineable_id",   limit: 4
+    t.string   "timelineable_type", limit: 255
+    t.text     "remark",            limit: 65535
+    t.integer  "status",            limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|

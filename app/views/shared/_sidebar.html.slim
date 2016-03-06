@@ -1,4 +1,7 @@
 
 ul.nav.nav-sidebar 
- li class="#{params[:controller].end_with?('criterions')? 'active':''}"
-   = link_to "时长标准", criterions_path
+ li class="#{params[:controller].end_with?('collect_criterions')? 'active':''}"
+   = link_to "时长标准", collect_criterions_path
+ 
+ li class="#{params[:controller].end_with?('collects')? 'active':''}"
+   = link_to "揽件预警", collects_path

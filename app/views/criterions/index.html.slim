@@ -7,12 +7,16 @@
     thead
       tr 
         th 编号
+        th 名称
+        th 步骤
         th 类型
         th 时长（分）
     tbody 
       - @criterions.each do |criterion|
         tr
           td #{criterion.id} 
+          td #{criterion.name} 
+          td #{criterion.step} 
           td #{criterion.ctype}
           td #{criterion.minutes}
           td 

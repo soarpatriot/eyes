@@ -1,0 +1,27 @@
+.content-wraper
+  table.table 
+    thead
+      tr 
+        th 编号
+        th 受理单号
+        th 运单号
+        th 配送站
+        th 配送员姓名
+        th 状态
+    tbody 
+      - @collects.each do |collect|
+        tr
+          td #{collect.id} 
+          td #{collect.accepted_code} 
+          td #{collect.waybill_id} 
+          td #{collect.user.try(:name)} 
+          td #{collect.user.try(:department).try(:name)} 
+          td #{collect.status_alias} 
+          td 
+           .btn-group
+             = link_to  "时间线", timeline_collect_path(collect), class:"btn btn-warning"
+
+  .row
+    .col-lg-12.toolbar
+      .pull-right = paginate @collects, theme: 'twitter-bootstrap-3'
+

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :timelines
+  resources :collect_criterions
   #require 'sidekiq/web'
   #devise_for :admins
   #devise_for :users
@@ -7,6 +9,11 @@ Rails.application.routes.draw do
   mount GrapeSwaggerRails::Engine => '/swagger'
   #mount Sidekiq::Web => '/admin/sidekiq'
 
+  resources :collects do 
+    member do 
+      get 'timeline'
+    end
+  end
   resources :criterions
   resources :commissions
   resources :areas do 

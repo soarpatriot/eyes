@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+  strong Start at:
+  = @collect_criterion.start_at
+p
+  strong End at:
+  = @collect_criterion.end_at
+p
+  strong Assign mins:
+  = @collect_criterion.assign_mins
+p
+  strong Respoonse mins:
+  = @collect_criterion.response_mins
+p
+  strong Door mins:
+  = @collect_criterion.door_mins
+p
+  strong In mins:
+  = @collect_criterion.in_mins
+p
+  strong Out mins:
+  = @collect_criterion.out_mins
+p
+  strong Accquire mins:
+  = @collect_criterion.accquire_mins
+p
+  strong Criteriable:
+  = @collect_criterion.criteriable_id
+p
+  strong Criteriable type:
+  = @collect_criterion.criteriable_type
+
+= link_to 'Edit', edit_collect_criterion_path(@collect_criterion)
+'|
+= link_to 'Back', collect_criterions_path
