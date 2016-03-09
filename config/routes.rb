@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   #devise_for :admins
   #devise_for :users
 
-  mount ApiV1 => "/" 
-  mount GrapeSwaggerRails::Engine => '/swagger'
   #mount Sidekiq::Web => '/admin/sidekiq'
 
   resources :collects do 
@@ -75,7 +73,9 @@ Rails.application.routes.draw do
       end 
     end
   end
-
+  mount ApiV1 => "/" 
+  mount GrapeSwaggerRails::Engine => '/swagger'
+ 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

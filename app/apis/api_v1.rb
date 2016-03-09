@@ -25,7 +25,7 @@ class ApiV1 < Grape::API
   mount V1::CollectsApi
   mount V1::CitiesApi
 
-  # add_swagger_documentation api_version: "v1"
+  add_swagger_documentation api_version: "v1"
 
 end
 
