@@ -1,8 +1,8 @@
 class Collect < ActiveRecord::Base
-  include Status
+  include Step
   has_one :waybill
   belongs_to :user
-  has_many :timelines, as: :timelineable  
+  has_many :timelines
 
 
 end

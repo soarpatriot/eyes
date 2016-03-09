@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #devise_for :admins
   #devise_for :users
 
- 
+  mount ApiV1 => "/" 
   mount GrapeSwaggerRails::Engine => '/swagger'
   #mount Sidekiq::Web => '/admin/sidekiq'
 

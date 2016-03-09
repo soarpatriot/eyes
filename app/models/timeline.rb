@@ -1,4 +1,4 @@
 class Timeline < ActiveRecord::Base
-  include Status
-  belongs_to :timelineable, polymorphic: true
+  include Step
+  belongs_to :collect
 end
