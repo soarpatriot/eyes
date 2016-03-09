@@ -1,8 +1,9 @@
 set :stage, :local
 set :server_name, "10.3.47.62"
 
-set :server_domain_name, "eye.wuliusys.com"
-set :repo_url, 'git@github.com:soarpatriot/eyes.git'
+set :server_domain_name, "e.wltest.com"
+set :repo_url, 'https://github.com/soarpatriot/eyes.git'
+#set :repo_url, 'git@github.com:soarpatriot/eyes.git'
 set :branch, "master"
 
 set :log_level, :debug

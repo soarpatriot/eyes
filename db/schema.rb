@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308161037) do
+ActiveRecord::Schema.define(version: 20160309092830) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160308161037) do
   create_table "collects", force: :cascade do |t|
     t.string   "accepted_code", limit: 255
     t.integer  "waybill_id",    limit: 4
-    t.integer  "status",        limit: 4
+    t.integer  "step",          limit: 4
     t.datetime "start_at"
     t.datetime "end_at"
     t.datetime "created_at",                null: false
@@ -46,14 +46,13 @@ ActiveRecord::Schema.define(version: 20160308161037) do
   end
 
   create_table "departments", force: :cascade do |t|
-    t.string   "name",            limit: 255
+    t.string   "name",          limit: 255
     t.datetime "collect_start"
     t.datetime "collect_end"
-    t.integer  "dtype",           limit: 4
-    t.integer  "departable_id",   limit: 4
-    t.string   "departable_type", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "dtype",         limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "city_id",       limit: 4
   end
 
   create_table "districts", force: :cascade do |t|
@@ -73,12 +72,11 @@ ActiveRecord::Schema.define(version: 20160308161037) do
   end
 
   create_table "overtimes", force: :cascade do |t|
-    t.integer  "overtimeable_id",   limit: 4
-    t.string   "overtimeable_type", limit: 255
-    t.integer  "step",              limit: 4
-    t.integer  "delay_mins",        limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "step",        limit: 4
+    t.integer  "delay_mins",  limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "timeline_id", limit: 4
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -106,12 +104,11 @@ ActiveRecord::Schema.define(version: 20160308161037) do
 
   create_table "timelines", force: :cascade do |t|
     t.datetime "opt_at"
-    t.integer  "timelineable_id",   limit: 4
-    t.string   "timelineable_type", limit: 255
-    t.text     "remark",            limit: 65535
-    t.integer  "status",            limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.text     "remark",     limit: 65535
+    t.integer  "step",       limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "collect_id", limit: 4
   end
 
   create_table "users", force: :cascade do |t|
