@@ -5,3 +5,5 @@ ul.nav.nav-sidebar
  
  li class="#{params[:controller].end_with?('collects')? 'active':''}"
    = link_to "揽件预警", collects_path
+ li class="#{params[:controller].end_with?('routings')? 'active':''}"
+   = link_to "路由设置", routings_path

@@ -53,6 +53,7 @@ class CollectCriterionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def collect_criterion_params
-      params.require(:collect_criterion).permit(:start_at, :end_at, :assign_mins, :response_mins, :door_mins, :in_mins, :out_mins, :accquire_mins, :criteriable_id, :criteriable_type)
+      params.require(:collect_criterion).permit(:start_at, :end_at, :assign_station_mins, :assign_man_mins, 
+                                                :response_mins, :collect_mins, :province_id, :city_id, :department_id)
     end
 end

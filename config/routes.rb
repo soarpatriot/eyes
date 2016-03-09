@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :routings
   resources :timelines
   resources :collect_criterions
   #require 'sidekiq/web'

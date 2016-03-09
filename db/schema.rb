@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306054643) do
+ActiveRecord::Schema.define(version: 20160308161037) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -23,16 +23,15 @@ ActiveRecord::Schema.define(version: 20160306054643) do
   create_table "collect_criterions", force: :cascade do |t|
     t.time     "start_at"
     t.time     "end_at"
-    t.integer  "assign_mins",      limit: 4
-    t.integer  "response_mins",    limit: 4
-    t.integer  "door_mins",        limit: 4
-    t.integer  "in_mins",          limit: 4
-    t.integer  "out_mins",         limit: 4
-    t.integer  "accquire_mins",    limit: 4
-    t.integer  "criteriable_id",   limit: 4
-    t.string   "criteriable_type", limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "assign_station_mins", limit: 4
+    t.integer  "response_mins",       limit: 4
+    t.integer  "assign_man_mins",     limit: 4
+    t.integer  "collect_mins",        limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "department_id",       limit: 4
+    t.integer  "city_id",             limit: 4
+    t.integer  "province_id",         limit: 4
   end
 
   create_table "collects", force: :cascade do |t|
@@ -44,17 +43,6 @@ ActiveRecord::Schema.define(version: 20160306054643) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "user_id",       limit: 4
-  end
-
-  create_table "criterions", force: :cascade do |t|
-    t.integer  "ctype",              limit: 4
-    t.integer  "minutes",            limit: 4
-    t.integer  "criterionable_id",   limit: 4
-    t.string   "criterionable_type", limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "name",               limit: 255
-    t.integer  "step",               limit: 4
   end
 
   create_table "departments", force: :cascade do |t|
@@ -84,10 +72,36 @@ ActiveRecord::Schema.define(version: 20160306054643) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "overtimes", force: :cascade do |t|
+    t.integer  "overtimeable_id",   limit: 4
+    t.string   "overtimeable_type", limit: 255
+    t.integer  "step",              limit: 4
+    t.integer  "delay_mins",        limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "routings", force: :cascade do |t|
+    t.integer  "shift",                     limit: 4
+    t.time     "start_at"
+    t.integer  "collect_mins",              limit: 4
+    t.integer  "in_mins",                   limit: 4
+    t.integer  "out_mins",                  limit: 4
+    t.integer  "arrival_mins",              limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "start_province_id",         limit: 4
+    t.integer  "start_city_id",             limit: 4
+    t.integer  "start_department_id",       limit: 4
+    t.integer  "destination_province_id",   limit: 4
+    t.integer  "destination_city_id",       limit: 4
+    t.integer  "destination_department_id", limit: 4
   end
 
   create_table "timelines", force: :cascade do |t|

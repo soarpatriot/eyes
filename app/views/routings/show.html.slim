@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Shift:
+  = @routing.shift
+p
+  strong Start at:
+  = @routing.start_at
+p
+  strong Collect mins:
+  = @routing.collect_mins
+p
+  strong In mins:
+  = @routing.in_mins
+p
+  strong Out mins:
+  = @routing.out_mins
+p
+  strong Arrival mins:
+  = @routing.arrival_mins
+p
+  strong Start:
+  = @routing.start_province_id
+p
+  strong Destination:
+  = @routing.destination_province_id
+
+= link_to 'Edit', edit_routing_path(@routing)
+'|
+= link_to 'Back', routings_path

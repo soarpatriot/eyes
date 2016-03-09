@@ -1,0 +1,27 @@
+= simple_form_for(@routing) do |f|
+  = f.error_notification
+  .row
+    .col-md-3.col-md-offset-3
+      p.text-center 开始
+      = f.input :start_province_id, collection: Province.all
+      = f.input :start_city_id, collection: City.all
+      = f.input :start_department_id, collection: Department.all
+    .col-md-3
+      p.text-center 目的地
+      = f.input :destination_province_id, collection: Province.all
+      = f.input :destination_city_id, collection: City.all
+      = f.input :destination_department_id, collection: Department.all
+
+
+  .row
+    .col-md-6.col-md-offset-3
+      .form-inputs
+        = f.input :shift
+        = f.input :start_at
+        = f.input :collect_mins
+        = f.input :in_mins
+        = f.input :out_mins
+        = f.input :arrival_mins
+
+      .form-actions
+        = f.button :submit

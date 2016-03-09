@@ -9,6 +9,7 @@ zh-CN:
         activity: "商品促销"
         post: "闲置"
         city: "市"
+        routing: "路由"
       attributes:
         city: 
            province: "省，直辖市"
@@ -57,6 +58,15 @@ zh-CN:
           accquire_mins: "距离要求时间"
           criteriable_id: "关联机构"
           criteriable_type: "关联机构类型"
+        routing:
+          shift: "班次"
+          start_at: "班次时间"
+          collect_mins: "揽件时间"
+          in_mins: "入站时间"
+          out_mins: "出站时间"
+          arrival_mins: "到达时间"
+          start_id: "出发地"
+          destination_id: "目的地"
       errors:
         template:
           header:

@@ -1,9 +1,11 @@
 class CollectCriterion < ActiveRecord::Base
    
-  validates :start_at, :end_at, :assign_mins, :response_mins, 
-      :door_mins, :in_mins, :out_mins, :accquire_mins, :criteriable_id, :criteriable_type,
+  validates :start_at, :end_at, :assign_man_mins, :response_mins, 
+      :assign_station_mins, :collect_mins,
       presence: true
-  belongs_to :criteriable,  polymorphic: true
+  belongs_to :province
+  belongs_to :city
+  belongs_to :department
   def self.criteriable_relative
            { 
                  "Province" =>  "省",

@@ -3,16 +3,15 @@
   .col-sm-6.col-sm-offset-3
     = simple_form_for(@collect_criterion,html:{class:"form-horizontal"} ) do |f|
       = f.error_notification
+      = f.input :province_id, collection:Province.all, include_blank: false
+      = f.input :city_id, collection:City.all, include_blank: true
+      = f.input :department_id, collection:Department.all, include_blank: true
       = f.input :start_at
       = f.input :end_at
-      = f.input :assign_mins
+      = f.input :assign_station_mins
+      = f.input :assign_man_mins
       = f.input :response_mins
-      = f.input :door_mins
-      = f.input :in_mins
-      = f.input :out_mins
-      = f.input :accquire_mins
-      = f.input  :criteriable_type, collection: CollectCriterion.criteriable_relative.map{|k,v| [v,k]}, include_blank: false
-      = f.input :criteriable_id, as: :select
+      = f.input :collect_mins
       .form-group
         = f.button :submit, class:"btn-primary"
         | &nbsp;&nbsp;

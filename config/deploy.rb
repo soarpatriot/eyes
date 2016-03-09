@@ -2,12 +2,12 @@
 lock '3.4.0'
 
 set :application, 'price'
-set :repo_url, 'https://github.com/soarpatriot/price.git'
+set :repo_url, 'https://github.com/soarpatriot/eyes.git'
 
 set :rails_env, 'production'
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.1.5@price'
+set :rvm_ruby_version, '2.2.2'
 
 set :scm, :git
 
@@ -15,7 +15,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w{config/database.yml config/settings/production.yml  config/secrets.yml config/oneapm.yml config/sidekiq.yml}
+set :linked_files, %w{config/database.yml config/settings/production.yml  config/secrets.yml }
 
 set :linked_dirs, %w{bin log tmp public/system public/assets public/uploads}
 
