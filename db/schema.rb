@@ -11,121 +11,136 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309110932) do
+ActiveRecord::Schema.define(version: 20160312101739) do
 
-  create_table "cities", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "province_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "cities", :force => true do |t|
+    #t.column "id",          "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "name",        "varchar(255)",                 :comment => ""
+    t.column "province_id", "int(11)",                      :comment => ""
+    t.column "created_at",  "datetime",     :null => false, :comment => ""
+    t.column "updated_at",  "datetime",     :null => false, :comment => ""
   end
 
-  create_table "collect_criterions", force: :cascade do |t|
-    t.time     "start_at"
-    t.time     "end_at"
-    t.integer  "assign_station_mins", limit: 4
-    t.integer  "response_mins",       limit: 4
-    t.integer  "assign_man_mins",     limit: 4
-    t.integer  "collect_mins",        limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "department_id",       limit: 4
-    t.integer  "city_id",             limit: 4
-    t.integer  "province_id",         limit: 4
+  create_table "collect_criterions", :force => true do |t|
+    #t.column "id",                  "int(11)",  :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "start_at",            "time",                     :comment => ""
+    t.column "end_at",              "time",                     :comment => ""
+    t.column "assign_station_mins", "int(11)",                  :comment => ""
+    t.column "response_mins",       "int(11)",                  :comment => ""
+    t.column "assign_man_mins",     "int(11)",                  :comment => ""
+    t.column "collect_mins",        "int(11)",                  :comment => ""
+    t.column "created_at",          "datetime", :null => false, :comment => ""
+    t.column "updated_at",          "datetime", :null => false, :comment => ""
+    t.column "department_id",       "int(11)",                  :comment => ""
+    t.column "city_id",             "int(11)",                  :comment => ""
+    t.column "province_id",         "int(11)",                  :comment => ""
   end
 
-  create_table "collects", force: :cascade do |t|
-    t.string   "accepted_code", limit: 255
-    t.integer  "waybill_id",    limit: 4
-    t.integer  "step",          limit: 4
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "user_id",       limit: 4
-    t.integer  "department_id", limit: 4
+  create_table "collects", :force => true do |t|
+    #t.column "id",            "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "accepted_code", "varchar(255)",                 :comment => ""
+    t.column "waybill_id",    "int(11)",                      :comment => ""
+    t.column "step",          "int(11)",                      :comment => ""
+    t.column "start_at",      "datetime",                     :comment => ""
+    t.column "end_at",        "datetime",                     :comment => ""
+    t.column "created_at",    "datetime",     :null => false, :comment => ""
+    t.column "updated_at",    "datetime",     :null => false, :comment => ""
+    t.column "user_id",       "int(11)",                      :comment => ""
+    t.column "department_id", "int(11)",                      :comment => ""
   end
 
-  create_table "departments", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.datetime "collect_start"
-    t.datetime "collect_end"
-    t.integer  "dtype",         limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "city_id",       limit: 4
+  create_table "departments", :force => true do |t|
+    #t.column "id",         "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "name",       "varchar(255)",                 :comment => ""
+    t.column "dtype",      "int(11)",                      :comment => ""
+    t.column "created_at", "datetime",     :null => false, :comment => ""
+    t.column "updated_at", "datetime",     :null => false, :comment => ""
+    t.column "city_id",    "int(11)",                      :comment => ""
   end
 
-  create_table "districts", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "city_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "districts", :force => true do |t|
+    #t.column "id",         "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "name",       "varchar(255)",                 :comment => ""
+    t.column "city_id",    "int(11)",                      :comment => ""
+    t.column "created_at", "datetime",     :null => false, :comment => ""
+    t.column "updated_at", "datetime",     :null => false, :comment => ""
   end
 
-  create_table "keys", force: :cascade do |t|
-    t.string   "origin",     limit: 255
-    t.string   "api_key",    limit: 255
-    t.integer  "ktype",      limit: 4
-    t.string   "api_secret", limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "keys", :force => true do |t|
+    #t.column "id",         "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "origin",     "varchar(255)",                 :comment => ""
+    t.column "api_key",    "varchar(255)",                 :comment => ""
+    t.column "ktype",      "int(11)",                      :comment => ""
+    t.column "api_secret", "varchar(255)",                 :comment => ""
+    t.column "created_at", "datetime",     :null => false, :comment => ""
+    t.column "updated_at", "datetime",     :null => false, :comment => ""
   end
 
-  create_table "overtimes", force: :cascade do |t|
-    t.integer  "step",        limit: 4
-    t.integer  "delay_mins",  limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "timeline_id", limit: 4
+  create_table "overtimes", :force => true do |t|
+    #t.column "id",         "int(11)",  :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "step",       "int(11)",                  :comment => ""
+    t.column "delay_mins", "int(11)",                  :comment => ""
+    t.column "created_at", "datetime", :null => false, :comment => ""
+    t.column "updated_at", "datetime", :null => false, :comment => ""
+    t.column "collect_id", "int(11)",                  :comment => ""
+    t.column "status",     "int(11)",                  :comment => ""
+    t.column "otype",      "int(11)",                  :comment => ""
   end
 
-  create_table "provinces", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "provinces", :force => true do |t|
+    #t.column "id",         "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "name",       "varchar(255)",                 :comment => ""
+    t.column "created_at", "datetime",     :null => false, :comment => ""
+    t.column "updated_at", "datetime",     :null => false, :comment => ""
   end
 
-  create_table "routings", force: :cascade do |t|
-    t.integer  "shift",                     limit: 4
-    t.time     "start_at"
-    t.integer  "collect_mins",              limit: 4
-    t.integer  "in_mins",                   limit: 4
-    t.integer  "out_mins",                  limit: 4
-    t.integer  "arrival_mins",              limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "start_province_id",         limit: 4
-    t.integer  "start_city_id",             limit: 4
-    t.integer  "start_department_id",       limit: 4
-    t.integer  "destination_province_id",   limit: 4
-    t.integer  "destination_city_id",       limit: 4
-    t.integer  "destination_department_id", limit: 4
+  create_table "routings", :force => true do |t|
+    #t.column "id",                        "int(11)",  :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "shift",                     "int(11)",                  :comment => ""
+    t.column "start_at",                  "time",                     :comment => ""
+    t.column "collect_mins",              "int(11)",                  :comment => ""
+    t.column "in_mins",                   "int(11)",                  :comment => ""
+    t.column "out_mins",                  "int(11)",                  :comment => ""
+    t.column "arrival_mins",              "int(11)",                  :comment => ""
+    t.column "created_at",                "datetime", :null => false, :comment => ""
+    t.column "updated_at",                "datetime", :null => false, :comment => ""
+    t.column "start_province_id",         "int(11)",                  :comment => ""
+    t.column "start_city_id",             "int(11)",                  :comment => ""
+    t.column "start_department_id",       "int(11)",                  :comment => ""
+    t.column "destination_province_id",   "int(11)",                  :comment => ""
+    t.column "destination_city_id",       "int(11)",                  :comment => ""
+    t.column "destination_department_id", "int(11)",                  :comment => ""
   end
 
-  create_table "timelines", force: :cascade do |t|
-    t.datetime "opt_at"
-    t.text     "remark",     limit: 65535
-    t.integer  "step",       limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "collect_id", limit: 4
+  create_table "timelines", :force => true do |t|
+    #t.column "id",         "int(11)",  :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "opt_at",     "datetime",                 :comment => ""
+    t.column "remark",     "text",                     :comment => ""
+    t.column "step",       "int(11)",                  :comment => ""
+    t.column "created_at", "datetime", :null => false, :comment => ""
+    t.column "updated_at", "datetime", :null => false, :comment => ""
+    t.column "collect_id", "int(11)",                  :comment => ""
+    t.column "user_id",    "int(11)",                  :comment => ""
+    t.column "ttype",      "int(11)",                  :comment => ""
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "department_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "users", :force => true do |t|
+    #t.column "id",            "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "name",          "varchar(255)",                 :comment => "用户名称"
+    t.column "department_id", "int(11)",                      :comment => ""
+    t.column "created_at",    "datetime",     :null => false, :comment => ""
+    t.column "updated_at",    "datetime",     :null => false, :comment => ""
   end
 
-  create_table "waybills", force: :cascade do |t|
-    t.string   "code",          limit: 255
-    t.integer  "user_id",       limit: 4
-    t.integer  "collection_id", limit: 4
-    t.integer  "status",        limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "waybills", :force => true do |t|
+    #t.column "id",            "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
+    t.column "code",          "varchar(255)",                 :comment => ""
+    t.column "user_id",       "int(11)",                      :comment => ""
+    t.column "collect_id",    "int(11)",                      :comment => ""
+    t.column "step",          "int(11)",                      :comment => ""
+    t.column "created_at",    "datetime",     :null => false, :comment => ""
+    t.column "updated_at",    "datetime",     :null => false, :comment => ""
+    t.column "department_id", "int(11)",                      :comment => ""
   end
 
 end

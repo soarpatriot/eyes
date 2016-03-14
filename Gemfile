@@ -9,6 +9,8 @@ gem 'spreadsheet'
 gem 'axlsx'
 gem 'axlsx_rails'
 gem 'acts_as_xlsx'
+gem 'migration_comments'
+gem 'schema_comments'
 
 gem 'config'
 # gem 'rails_config'

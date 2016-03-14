@@ -1,0 +1,5 @@
+---
+table_comments: {}
+column_comments:
+  users:
+    name: "用户名称"
