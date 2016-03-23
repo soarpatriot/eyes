@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312101739) do
+ActiveRecord::Schema.define(version: 20160323015337) do
 
   create_table "cities", :force => true do |t|
     #t.column "id",          "int(11)",      :null => false, :comment => "AUTO_INCREMENT PRIMARY KEY by rails"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160312101739) do
     t.column "department_id",       "int(11)",                  :comment => ""
     t.column "city_id",             "int(11)",                  :comment => ""
     t.column "province_id",         "int(11)",                  :comment => ""
+    t.column "type",                "int(11)",                  :comment => ""
+    t.column "is_delete",           "int(11)",                  :comment => ""
   end
 
   create_table "collects", :force => true do |t|
@@ -142,5 +144,7 @@ ActiveRecord::Schema.define(version: 20160312101739) do
     t.column "updated_at",    "datetime",     :null => false, :comment => ""
     t.column "department_id", "int(11)",                      :comment => ""
   end
+
+  add_index "waybills", ["code"], name: "index_waybills_on_code", unique: true, using: :btree
 
 end
